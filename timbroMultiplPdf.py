@@ -122,6 +122,7 @@ if uploaded_files and uploaded_logo and st.button("Applica firma"):
                 signed_files.append((os.path.basename(output_path), f.read()))
 
         st.success("✅ Firma completata con successo!")
-        for name, data in signed_files:
-            st.download_button(f"⬇️ Scarica {name}", data, file_name=name)
+        for i, (name, data) in enumerate(signed_files):
+            st.download_button(f"⬇️ Scarica {name}", data, file_name=name, key=f"download_{i}")
+
 
