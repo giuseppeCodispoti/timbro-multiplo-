@@ -1,2 +1,4 @@
-fitz
-os
+streamlit
+Pillow
+PyPDF2
+reportlab
