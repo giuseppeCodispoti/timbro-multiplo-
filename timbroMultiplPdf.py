@@ -46,7 +46,8 @@ def add_header_bg(image_file):
     )
 
 # 👉 Inserisci qui il percorso della tua foto
-add_header_bg(r"C:\Users\g.codispoti\OneDrive - SIELTE S.p.A\PROGETTI GIT HUB\timbro multiplo\Timbro SIAE.jpg")
+
+add_header_bg(r"Timbro SIAE.jpg")
 
 st.title("✍️ Firma multipla su PDF e immagini")
 st.write("Carica PDF o immagini e applica automaticamente la tua firma/logo in basso a sinistra.")
