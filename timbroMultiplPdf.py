@@ -4,6 +4,7 @@ from PIL import Image
 import os
 import tempfile
 import base64
+import zipfile
 
 
 st.set_page_config(page_title="Firma multipla", page_icon="✍️")
@@ -132,6 +133,7 @@ if uploaded_files and uploaded_logo and st.button("Applica firma"):
                      
         with open(zip_path, "rb") as f:
             st.download_button("⬇️ Scarica tutti i file firmati (ZIP)", f.read(), file_name="file_firmati.zip")
+
 
 
 
