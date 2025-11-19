@@ -122,7 +122,17 @@ if uploaded_files and uploaded_logo and st.button("Applica firma"):
                 signed_files.append((os.path.basename(output_path), f.read()))
 
         st.success("✅ Firma completata con successo!")
-        for i, (name, data) in enumerate(signed_files):
-            st.download_button(f"⬇️ Scarica {name}", data, file_name=name, key=f"download_{i}")
+        zip_path = os.path.join(tmpdir, "file_firmati.zip")
+        with zipfile.ZipFile(zip_path, "w") as zipf:
+            for name, data in signed_files:
+                file_path = os.path.join(tmpdir, name)
+                with open(file_path, "wb") as f:
+                    f.write(data)
+                zipf.write(file_path, arcname=name)
+                     
+        with open(zip_path, "rb") as f:
+            st.download_button("⬇️ Scarica tutti i file firmati (ZIP)", f.read(), file_name="file_firmati.zip")
+
+
 
 
